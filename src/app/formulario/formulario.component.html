@@ -5,5 +5,7 @@
   <input type="date" id="dataNascimento" name="dataNascimento" [(ngModel)]="dataNascimento" required><br>
   <label for="imagem">Url imagem:</label><br>
   <input type="text" id="imagem" name="imagem"[(ngModel)]="imagem" ><br><br>
-  <input type="submit" value="Submit">
+  <input type="submit"  value="Submit">
 </form> 
+
+<app-lista-pessoas [lista]="listaPessoa"></app-lista-pessoas>

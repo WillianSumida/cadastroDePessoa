@@ -17,8 +17,11 @@ export class FormularioComponent implements OnInit {
   nome:string = ""
   dataNascimento:string = ""
   imagem:string = ""
-  
-  listaPessoa:ListaPessoasComponent = new ListaPessoasComponent
+
+  listaPessoa : Pessoa[] = [
+    {nome:'teste', dataNascimento: new Date('2001-12-11'), imagem:'https://www.thispersondoesnotexist.com/image'},
+    {nome:'teste', dataNascimento: new Date('2001-12-12'), imagem:''},]
+
   onSubmit(){
     const pessoa: Pessoa = {
       nome:this.nome,
@@ -27,11 +30,26 @@ export class FormularioComponent implements OnInit {
     }
 
     //VERIFICA SE O NOME JA EXISTE NA LISTA
-    if(!this.listaPessoa.getPessoa(pessoa)){
+    if(!this.getPessoa(pessoa)){
+      if(pessoa.imagem === "") pessoa.imagem = 'http://placehold.jp/150x150.png'
       alert("Adicionado")
-      this.listaPessoa.adicionarPessoa(pessoa)
+      this.adicionarPessoa(pessoa)
     }else{
       alert("Esse nome ja foi adicionado")
+    }
+  }
+
+  adicionarPessoa(pessoa:Pessoa){
+      this.listaPessoa.push(pessoa)
+      alert(JSON.stringify(this.listaPessoa));
+  }
+
+  getPessoa(getPessoa:Pessoa){
+    const index = this.listaPessoa.findIndex(pessoa => pessoa.nome === getPessoa.nome)
+    if (index > -1) {
+      return true;
+    } else{
+      return false;
     }
   }
 
