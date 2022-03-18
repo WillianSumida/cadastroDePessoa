@@ -20,7 +20,7 @@ export class FormularioComponent implements OnInit {
 
   listaPessoa : Pessoa[] = [
     {nome:'teste', dataNascimento: new Date('2001-12-11'), imagem:'https://www.thispersondoesnotexist.com/image'},
-    {nome:'teste', dataNascimento: new Date('2001-12-12'), imagem:''},]
+    ]
 
   onSubmit(){
     const pessoa: Pessoa = {

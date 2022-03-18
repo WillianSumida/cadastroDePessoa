@@ -2,7 +2,6 @@
     <li *ngFor="let pessoa of lista; let i = index" (click)="deletarPessoa(pessoa)">
         Pessoa {{i}} : {{pessoa.nome}} - 
             {{pessoa.dataNascimento | date: 'dd/MM/yyyy'}} - 
-            <img *ngIf="pessoa.imagem!=''" src="{{ pessoa.imagem }}" width="6%" height="6%" />
-            <img *ngIf="pessoa.imagem==''" src="https://picsum.photos/200/300" width="6%" height="6%" />
+            <img src="{{ pessoa.imagem }}" width="6%" height="6%" />
     </li>
 </ul>
