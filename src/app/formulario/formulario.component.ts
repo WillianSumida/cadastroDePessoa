@@ -13,8 +13,6 @@ export class FormularioComponent implements OnInit {
   nome:string = ""
   dataNascimento:string = ""
   imagem:string = ""
-  imageFlag:boolean = true
-
   listaPessoa : Pessoa[] = []
 
   onSubmit() : void{
@@ -26,7 +24,7 @@ export class FormularioComponent implements OnInit {
 
     //VERIFICA SE O NOME JA EXISTE NA LISTA
     if(!this.getPessoa(pessoa)){
-      this.adicionarPessoa(pessoa)
+      this.adicionarPessoa(pessoa);
     }else{
       alert("Esse nome ja foi adicionado")
     }
