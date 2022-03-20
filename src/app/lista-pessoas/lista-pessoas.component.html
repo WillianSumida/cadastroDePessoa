@@ -1,7 +1,9 @@
 <ul>
-    <li *ngFor="let pessoa of lista; let i = index" (click)="deletarPessoa(pessoa)">
-        Pessoa {{i}} : {{pessoa.nome}} - 
-            {{pessoa.dataNascimento | date: 'dd/MM/yyyy'}} - 
-            <img src="{{ pessoa.imagem }}" width="6%" height="6%" />
+    <li *ngFor="let pessoa of lista; let i = index">
+        Pessoa {{i}} : {{pessoa.nome}} | 
+        {{pessoa.dataNascimento | date: 'dd/MM/yyyy'}} | 
+        <img *ngIf="pessoa.imagem != ''" src="{{ pessoa.imagem }}" width="150" height="150" />
+        <img *ngIf="pessoa.imagem == ''" src="http://placehold.jp/150x150.png" width="150" height="150" />  |
+        <button (click)="deletarPessoa(pessoa)">Remover</button>
     </li>
 </ul>

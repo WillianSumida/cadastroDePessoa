@@ -8,21 +8,14 @@ import { Pessoa } from '../model/pessoa.model';
 })
 export class ListaPessoasComponent implements OnInit {
 
-  lista1 : Pessoa[] = [
-    {nome:'teste', dataNascimento: new Date('2001-12-11'), imagem:'https://www.thispersondoesnotexist.com/image'},
-    {nome:'teste', dataNascimento: new Date('2001-12-12'), imagem:''},]
+  @Input() lista : Pessoa[] = [];
 
-
-
-    @Input() lista : Pessoa[] = [];
-
-    deletarPessoa(delPessoa:Pessoa){
-      alert(JSON.stringify(this.lista));
-      const index = this.lista.findIndex(pessoa => pessoa.nome === delPessoa.nome)
-      if (index > -1) {
-        this.lista.splice(index, 1);
-      }
+  deletarPessoa(delPessoa:Pessoa) : void{
+    const index = this.lista.findIndex(pessoa => pessoa.nome === delPessoa.nome)
+    if (index > -1) {
+      this.lista.splice(index, 1);
     }
+  }
 
   constructor() { }
 
